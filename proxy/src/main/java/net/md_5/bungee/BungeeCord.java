@@ -133,10 +133,9 @@ public class BungeeCord extends ProxyServer
     public final Gson gsonLegacy = new GsonBuilder()
             .registerTypeAdapter( ServerPing.PlayerInfo.class, new PlayerInfoSerializer( ProtocolConstants.MINECRAFT_1_7_2 ) )
             .registerTypeAdapter( Favicon.class, Favicon.getFaviconTypeAdapter() ).create();
-    @Getter
-    private ConnectionThrottle connectionThrottle;
-    private final ModuleManager moduleManager = new ModuleManager();
 
+    private final ModuleManager moduleManager = new ModuleManager();
+ 
     
     {
         // TODO: Proper fallback when we interface the manager
@@ -217,7 +216,6 @@ public class BungeeCord extends ProxyServer
 
         pluginManager.enablePlugins();
 
-        connectionThrottle = new ConnectionThrottle( config.getThrottle() );
         startListeners();
 
         saveThread.scheduleAtFixedRate( new TimerTask()

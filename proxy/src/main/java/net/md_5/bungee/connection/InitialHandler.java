@@ -167,7 +167,6 @@ public class InitialHandler extends PacketHandler implements PendingConnection
                 }
                 result = bungee.getPluginManager().callEvent( new ProxyPingEvent( InitialHandler.this, result ) ).getResponse();
 
-                BungeeCord.getInstance().getConnectionThrottle().unthrottle( getAddress().getAddress() );
                 Gson gson = handshake.getProtocolVersion() == ProtocolConstants.MINECRAFT_1_7_2 ? BungeeCord.getInstance().gsonLegacy : BungeeCord.getInstance().gson;
                 unsafe.sendPacket( new StatusResponse( gson.toJson( result ) ) );
             }

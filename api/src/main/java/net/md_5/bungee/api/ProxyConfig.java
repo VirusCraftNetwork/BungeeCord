@@ -50,11 +50,6 @@ public interface ProxyConfig
      */
     Collection<String> getDisabledCommands();
 
-    /**
-     * The connection throttle delay.
-     */
-    @Deprecated
-    int getThrottle();
 
     /**
      * Whether the proxy will parse IPs with spigot or not
